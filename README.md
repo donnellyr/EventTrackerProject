@@ -34,9 +34,9 @@ use the URI's listed in the above table on the following site to preforme basic 
 * Atom
 
 ## Lessons Learned
-Learned to use rest controllers for URI mappings, gained experience with path variables and request bodies
-Used JSON's to create and edit data via REST
-Practiced syntax using JPA repositories allowing my program to access a mySQL database
-Created a schema using mySQL work bench
-Used Postman to test URI mappings / JPA functionality
-Learned the applications of GET, POST, PUT, and DELETE HTTP verbs
+* Learned to use rest controllers for URI mappings, gained experience with path variables and request bodies
+* Used JSON's to create and edit data via REST
+* Practiced syntax using JPA repositories allowing my program to access a mySQL database
+* Created a schema using mySQL work bench
+* Used Postman to test URI mappings / JPA functionality
+* Learned the applications of GET, POST, PUT, and DELETE HTTP verbs
