@@ -3,7 +3,7 @@
 ## Individual portfolio project for Skill Distillery
 
 ## Overview
-The backend and URI mapping to perform basic CRUD functions on a database of parks, intended for use in Java version 1.8
+A site utilizing Java, spring-boot, REST, and JavaScript to perform basic CRUD functions on a database of parks, intended for use in Java version 1.8
 
 ## REST Endpoints
 
@@ -16,18 +16,19 @@ The backend and URI mapping to perform basic CRUD functions on a database of par
 | DELETE    | `/api/parks/{id}`        |                         | Delete Park    | **Delete** route |
 
 ## How to Run
-use the URI's listed in the above table on the following site to preforme basic CRUD Functions on a database of parks
-### TODO!!! URL OF DEPLOYED APP
-
+use the URI's listed in the above table on the following site to perform basic CRUD Functions on a database of parks
+### URL OF DEPLOYED APP
+http://3.230.224.45:8080/ParkTracker/
 ## Technologies Used
 
 * Java
+* JavaScript
 * Spring, Spring Boot
 * REST
 * Postman
 * JPA, JPA repositories
 * mySQL, mySQL work bench
-* Eclipse
+* Eclipse, SpringToolSuite4
 * JSON
 * Gradle
 * Junit 5
@@ -40,3 +41,6 @@ use the URI's listed in the above table on the following site to preforme basic 
 * Created a schema using mySQL work bench
 * Used Postman to test URI mappings / JPA functionality
 * Learned the applications of GET, POST, PUT, and DELETE HTTP verbs
+* Learned DOM manipulation using JavaScript to dynamically display web pages and perform CRUD functions
+* Used event listeners to trigger functions when the right conditions were met
+* Used XMLHttpRequest's to route to REST endpoints
