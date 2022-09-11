@@ -45,5 +45,19 @@ public class ParkServiceImpl implements ParkService {
 		// TODO Auto-generated method stub
 		return repo.findById(id);
 	}
+	@Override
+	public Park updateRating(int id, Park park) {
+		Park edited = repo.findById(id);
+		if(edited.getRating() == null) {
+			edited.setRating(0.0);
+			edited.setTimesRated(0);
+		}
+		Double newRating = edited.getRating() + park.getRating();
+		Integer times = edited.getTimesRated()+ 1;
+		edited.setRating(newRating);
+		edited.setTimesRated(times);
+		repo.saveAndFlush(edited);
+		return edited;
+	}
 
 }

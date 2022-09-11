@@ -19,7 +19,7 @@ import com.skilldistillery.parktracker.services.ParkService;
 @RequestMapping("api")
 public class ParkController {
 	@Autowired
-	ParkService parkServe;
+	ParkService parkServe; 
 
 	@GetMapping("parks")
 	public List<Park> listAll() {
@@ -37,6 +37,10 @@ public class ParkController {
 	@PutMapping("parks/{id}")
 	public Park editPark(@PathVariable int id, @RequestBody Park park) {
 		return parkServe.editPark(id, park);
+	}
+	@PutMapping("parks/ratings/{id}")
+	public Park editRating(@PathVariable int id, @RequestBody Park park) {
+		return parkServe.updateRating(id, park);
 	}
 	@DeleteMapping("parks/{id}")
 	public boolean deletePark(@PathVariable int id) {

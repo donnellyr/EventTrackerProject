@@ -3,8 +3,8 @@
 	<persistence-unit name="ParkTrackerJPA">
 	
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-	    <class>com.skilldistillery.parktracker.entites.park</class>
 
+	    <class>com.skilldistillery.parktracker.entities.Park</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/parktrackerdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
       <property name="javax.persistence.jdbc.user" value="parkuser"/>

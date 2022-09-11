@@ -42,6 +42,7 @@ private EntityManager em;
 		Park park = em.find(Park.class, 1);
 		assertNotNull(park);
 		assertEquals("Sandy Hook", park.getName());
+		assertEquals(300, park.getRating());
 	}
 
 }

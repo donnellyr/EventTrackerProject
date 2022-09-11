@@ -26,6 +26,10 @@ private String city;
 
 @Column(name = "zip_code")
 private int zipCode;
+
+private Double rating;
+@Column(name= "times_rated")
+private Integer timesRated;
 public Park() {
 	super();
 }
@@ -93,6 +97,25 @@ public void setZipCode(int zipCode) {
 	this.zipCode = zipCode;
 }
 
+
+
+
+public Double getRating() {
+	return rating;
+}
+
+public void setRating(Double rating) {
+	this.rating = rating;
+}
+
+public Integer getTimesRated() {
+	return timesRated;
+}
+
+public void setTimesRated(Integer timesRated) {
+	this.timesRated = timesRated;
+}
+
 @Override
 public int hashCode() {
 	return Objects.hash(id);
@@ -113,7 +136,8 @@ public boolean equals(Object obj) {
 @Override
 public String toString() {
 	return "Park [id=" + id + ", description=" + description + ", name=" + name + ", state=" + state + ", street="
-			+ street + ", city=" + city + ", zipCode=" + zipCode + "]";
+			+ street + ", city=" + city + ", zipCode=" + zipCode 
+			+ "]";
 }
 
 
