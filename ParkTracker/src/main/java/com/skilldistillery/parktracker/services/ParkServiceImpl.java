@@ -37,6 +37,8 @@ public class ParkServiceImpl implements ParkService {
 		edited.setCity(park.getCity());
 		edited.setStreet(park.getStreet());
 		edited.setZipCode(park.getZipCode());
+		edited.setRating(park.getRating());
+		edited.setTimesRated(park.getTimesRated());
 		repo.saveAndFlush(edited);
 		return edited;
 	}

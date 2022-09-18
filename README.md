@@ -33,6 +33,9 @@ http://3.230.224.45:8080/ParkTracker/
 * Gradle
 * Junit 5
 * Atom
+* VS code
+* TypeScript, Angular, Node JS
+* HTML, CSS, Bootstrap
 
 ## Lessons Learned
 * Learned to use rest controllers for URI mappings, gained experience with path variables and request bodies
@@ -44,3 +47,6 @@ http://3.230.224.45:8080/ParkTracker/
 * Learned DOM manipulation using JavaScript to dynamically display web pages and perform CRUD functions
 * Used event listeners to trigger functions when the right conditions were met
 * Used XMLHttpRequest's to route to REST endpoints
+* Learned to use angular / typescript to make a dynamic front end to my site
+* Incorporated node js, used ng statements to dynamically display data
+* Incorporated CSS and Bootstrap for frontend styling
