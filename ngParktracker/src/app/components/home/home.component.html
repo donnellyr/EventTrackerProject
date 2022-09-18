@@ -1,0 +1,118 @@
+<!-- Nav Bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" (click)="displayTable()" href="#">Park Place</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" (click)="displayTable()" href="#">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="viewAdd()" href="#">Add a park</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="sortParks()" href="#">Top 5 Parks</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Park View -->
+<table *ngIf="!selected && !add && !sort && !aboutUs" class="table table-striped table-hover">
+  <thead class="table table-dark">
+    <tr>
+      <th >Name</th>
+      <th>State</th>
+      <th>Rating</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let park of parks">
+      <td (click)="view(park.id)">{{park.name}}</td>
+      <td (click)="view(park.id)">{{park.state}}</td>
+      <td (click)="view(park.id)">{{getRating(park) | number:'1.1-2'}}</td>
+      <td><button (click)="deletePark(park.id )" class="btn btn-danger">X</button></td>
+
+    </tr>
+
+  </tbody>
+</table>
+<!-- Sorted Park View -->
+<table *ngIf="!selected && !add && sort &&!aboutUs" class="table table-striped table-hover">
+  <thead class="table table-dark">
+    <tr>
+      <th >Name</th>
+      <th>State</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+    <tbody *ngFor="let sort of sorted; let i = index" class="table table-striped table-hover">
+      <tr *ngIf="i < 5" >
+          <td (click)="view(sort.id)"   >{{sort.name}}</td>
+          <td (click)="view(sort.id)">{{sort.state}}</td>
+          <td (click)="view(sort.id)" >{{getRating(sort) | number:'1.1-2'}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+  <!-- Selected Park View -->
+  <div *ngIf="selected && !edit && !add">
+    <table class="table table-striped ">
+      <tbody >
+        <tr><td>Park ID: {{selected.id}}</td></tr>
+        <tr><td>Name: {{selected.name}}</td></tr>
+        <tr><td>Description: {{selected.description}}</td></tr>
+        <tr><td>State: {{selected.state}}</td></tr>
+        <tr><td>City: {{selected.city}}</td></tr>
+        <tr><td>Address: {{selected.street}}</td></tr>
+        <tr><td>Zip Code: {{selected.zipCode}}</td></tr>
+        <tr><td>Average Rating: {{getRating(selected)| number:'1.1-2'}}</tr>
+          <tr><td> Number of Ratings: {{selected.timesRated}}</td></tr>
+        <tr><td>
+          <form>
+            <select type="number" name="rating"   [(ngModel)]="rating">
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option>
+              <option value=5>5</option>
+            </select>
+            <button class="btn btn-info" (click)="ratePark(selected,rating)" >RatePark</button>
+          </form>
+        </td></tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="displayTable()">Back</button>
+    <button class="btn btn-warning" (click)="editButton()">Edit</button>
+
+  </div>
+
+  <!-- Edit a Park Form -->
+  <div *ngIf="edit && editPark">
+    <P>Edit a Park</P>
+    <form class=" form-control ">
+      <label>Name: </label> <input type="text" class=" form-control " name="task" [(ngModel)]="editPark.name"><br>
+      <label>description: </label> <input type="text" class=" form-control " name="description" [(ngModel)]="editPark.description"><br>
+      <label>Street: </label> <input type="text" class=" form-control " name="street" [(ngModel)]="editPark.street"><br>
+      <label>City: </label> <input type="text" class=" form-control " name="city" [(ngModel)]="editPark.city"><br>
+      <label>Zip: </label> <input type="number" class=" form-control " name="zip" [(ngModel)]="editPark.zipCode"><br>
+      <input type="submit" class="btn btn-primary" name="cancle" value="cancle" (click)="edit = false">
+      <input type="submit" class="btn btn-warning" name="save changes" value="save" (click)="updatePark(editPark)">
+    </form>
+  </div>
+  <!-- Add a Park Form -->
+  <form *ngIf="!selected && add" class=" form-control ">
+    <P>Add a new Park</P>
+    <label>Name: </label><br> <input type="text" class="form-control" name="task" [(ngModel)]="newPark.name"><br>
+    <label>Description: </label><br> <textarea  name="description" class="form-control" rows="4" [(ngModel)]="newPark.description"></textarea><br>
+    <label>State: </label> <br><input type="text" name="state" class="form-control" [(ngModel)]="newPark.state"><br>
+    <label>Street: </label><br> <input type="text" name="street" class="form-control" [(ngModel)]="newPark.street"><br>
+    <label>City: </label><br> <input type="text" name="city" class="form-control" [(ngModel)]="newPark.city"><br>
+    <label>Zip Code: </label> <br><input type="number" name="zipCode" class="form-control" [(ngModel)]="newPark.zipCode"><br>
+    <input type="submit" class="btn btn-primary" name="submit" (click)="addPark()">
+  </form>
+
